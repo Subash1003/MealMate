@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.navbar{
+    color:white;
+}
+.navbar .top1 .navleft img{
+ width: 80px;
+ cursor: pointer;
+ margin-left: 1rem;
+ margin-right: 1rem;
+}
+.navbar .top1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 5px;
+}
+.navbar .top1 .navleft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .top1 .navright{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+
+.navbar .top1 .navright a:hover{
+ text-decoration: underline;
+}
+
+.navbar .top1 .navright a{
+    color:white;
+    text-decoration: none;
+}
+
