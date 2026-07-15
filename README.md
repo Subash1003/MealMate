@@ -1,16 +1,117 @@
-# React + Vite
+# 🍔 MealMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive food ordering platform where users can search restaurants, browse detailed menus, and manage their cart before checkout — built with React and Redux.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+MealMate lets users explore a variety of restaurants, view detailed menu items, and seamlessly add them to a cart. The platform focuses on a smooth, intuitive browsing experience with real-time cart management, making online food ordering simple and efficient.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 **Restaurant Search** — Search and discover restaurants quickly
+- 📋 **Detailed Menus** — Browse restaurant menus with item details
+- 🛒 **Add to Cart** — Select, review, and manage items before checkout
+- 📱 **Responsive UI** — Smooth navigation across restaurant listings and menu pages on any device
+- 🔄 **State Management** — Centralized cart and app state using Redux
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React.js
+- **State Management:** Redux (Redux Toolkit)
+- **Styling:** CSS
+- **Build Tool:** Vite
+- **Linting:** ESLint
+
+## 📂 Project Structure
+
+```
+food/
+├── src/
+│   ├── assets/              # Images and static assets
+│   ├── components/
+│   │   ├── body/
+│   │   │   ├── RestaurantMenu.jsx
+│   │   │   └── HorizonScroll/
+│   │   └── navbar/
+│   │       └── Navbar.jsx
+│   ├── pages/
+│   │   ├── about/
+│   │   └── home/
+│   │       └── Home.jsx
+│   ├── redux/
+│   │   ├── CardSlice.jsx    # Cart state management
+│   │   └── Store.jsx        # Redux store configuration
+│   ├── Cart.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── public/
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/Subash1003/MealMate.git
+cd MealMate/food
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+```bash
+npm run build
+```
+
+## 🎯 Usage
+
+1. Browse through the list of available restaurants on the home page
+2. Click on a restaurant to view its detailed menu
+3. Add desired items to your cart
+4. Review and manage items in the cart before proceeding to checkout
+
+## 🔮 Future Enhancements
+
+- User authentication and order history
+- Payment gateway integration
+- Real-time order tracking
+- Restaurant ratings and reviews
+- Search filters (cuisine, price range, ratings)
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork this repository, make changes, and submit a pull request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👤 Author
+
+**Subash**
+GitHub: [@Subash1003](https://github.com/Subash1003)
