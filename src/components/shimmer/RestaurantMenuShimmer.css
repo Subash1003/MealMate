@@ -1,0 +1,151 @@
+.shimmer-page{
+    max-width:1000px;
+    margin:150px auto 40px;
+    padding:0 20px;
+}
+
+.shimmer{
+    position:relative;
+    overflow:hidden;
+    background:#e8e8e8;
+}
+
+.shimmer::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform:translateX(-100%);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.7),
+        transparent
+    );
+    animation:loading 1.2s infinite;
+}
+
+@keyframes loading{
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+.shimmer-title{
+    width:250px;
+    height:35px;
+    border-radius:8px;
+    margin-bottom:25px;
+}
+
+.shimmer-banner{
+    height:150px;
+    border-radius:20px;
+    margin-bottom:40px;
+}
+
+.shimmer-heading{
+    width:180px;
+    height:28px;
+    border-radius:6px;
+    margin-bottom:20px;
+}
+
+.shimmer-deals{
+    display:flex;
+    gap:15px;
+    overflow:hidden;
+    margin-bottom:40px;
+}
+
+.shimmer-deal{
+    min-width:240px;
+    height:90px;
+    border-radius:15px;
+}
+
+.shimmer-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:25px 0;
+    border-bottom:1px solid #ececec;
+}
+
+.shimmer-left{
+    flex:1;
+}
+
+.shimmer-line{
+    height:15px;
+    border-radius:5px;
+    margin-bottom:15px;
+}
+
+.short{
+    width:180px;
+}
+
+.small{
+    width:90px;
+}
+
+.medium{
+    width:120px;
+}
+
+.shimmer-line:not(.short):not(.small):not(.medium){
+    width:85%;
+}
+
+.shimmer-right{
+    position:relative;
+}
+
+.shimmer-image{
+    width:160px;
+    height:160px;
+    border-radius:16px;
+}
+
+.shimmer-button{
+    width:110px;
+    height:40px;
+    border-radius:10px;
+    margin:-20px auto 0;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .shimmer-page{
+        margin-top:120px;
+        padding:0 15px;
+    }
+
+    .shimmer-deal{
+        min-width:180px;
+    }
+
+    .shimmer-item{
+        flex-direction:column-reverse;
+        gap:20px;
+    }
+
+    .shimmer-right{
+        width:100%;
+    }
+
+    .shimmer-image{
+        width:100%;
+        height:220px;
+    }
+
+    .shimmer-button{
+        margin:-20px auto 0;
+    }
+
+    .shimmer-line{
+        width:100% !important;
+    }
+}

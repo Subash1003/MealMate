@@ -8,6 +8,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { resData } from '../../assets/mockData ';
 import HorizonScroll from '../../components/HorizonScroll/HorizonScroll';
+import HomeShimmer from '../../components/shimmer/HomeShimmer';
 
 const Home = () => {
 
@@ -53,7 +54,11 @@ const Home = () => {
   };
 
   if (!data) {
-    return (<div></div>)
+    return ( <>
+            <Navbar1 />
+            <HomeShimmer />
+        </>
+        );
   }
 
 

@@ -15,6 +15,7 @@ import { assets } from "../../assets/assets";
 import Navbar1 from "../../components/navbar/Navbar1";
 
 import Cart from "../../pages/Cart";
+import RestaurantMenuShimmer from "../shimmer/RestaurantMenuShimmer";
 
 const RestaurantMenu = () => {
 
@@ -60,7 +61,12 @@ const RestaurantMenu = () => {
 
 
     if (!menuData) {
-        return <h1></h1>;
+         return (
+        <>
+            <Navbar1 />
+            <RestaurantMenuShimmer />
+        </>
+    );
     }
 
     const scrollLeft = () => {
