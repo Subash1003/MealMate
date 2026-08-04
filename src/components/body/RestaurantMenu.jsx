@@ -294,10 +294,10 @@ const RestaurantMenu = () => {
 
             </div>
 
-                        <div className="cart-box">
+                        {/* <div className="cart-box">
 
                             <Cart/>
-                        </div>
+                        </div> */}
 
         </div>
     );

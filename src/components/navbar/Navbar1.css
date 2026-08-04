@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 .restaurant-navbar {
     position: fixed;
     top: 0;
@@ -7,234 +7,269 @@
     z-index: 1000;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 
     color: white;
     border: 1px solid lightgray;
     border-radius: 16px;
-    
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    background-color:white; /* or your navbar color */
+    background-color: white;
     box-sizing: border-box;
+    padding: 0 3rem;
+
+      font-family: 'Poppins', 'Montserrat', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .restaurant-left-section {
-  display: flex;
-  align-items: center;
-  padding-left: 8rem;
-  
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .logo-link {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  gap: 20px;
-  height: 100px;
-  font-size: 16px;
-
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    gap: 20px;
+    height: 100px;
+    font-size: 13px;
 }
 
 .restaurant-navbar-logo img {
-  height: 60px;
-  border-radius: 50%;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Search box: sits in the middle, between left and right sections */
+.top2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    width: 380px;
+}
+
+#searchbox {
+    width: 100%;
+    text-indent: 2.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(249, 246, 246, 0.977);
+    border: 1px solid transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: rgba(29, 29, 59, 0.859);
+    z-index: 1;
+    cursor: pointer;
 }
 
 .restaurant-right-section {
-  padding-right: 10rem;
-  display: flex;
-  align-content: flex-end;
-   gap: 20px;
-
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .restaurant-nav-links {
-  display: flex;
-  gap: 60px;
-  list-style: none;
-  margin: 0;
-  padding: 3% 0 3% 3%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .restaurant-nav-links li a {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* space between icon and text */
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .restaurant-nav-links li a:hover {
-  color: #ff9f43;
+    color: #ff9f43;
 }
 
-/* Optional: icon size */
 .restaurant-nav-links li a svg {
-  font-size: 18px;
-}
-
-
-
-/* ===========================
-   Tablet (992px and below)
-=========================== */
-
-@media (max-width: 992px) {
-
-  .restaurant-navbar {
-    padding: 0 20px;
-  }
-
-  .restaurant-left-section {
-    padding-left: 0;
-  }
-
-  .restaurant-right-section {
-    padding-right: 0;
-  }
-
-  .restaurant-nav-links {
-    gap: 35px;
-  }
-
-  .logo-link h1 {
-    font-size: 22px;
-  }
-
-}
-
-
-/* ===========================
-   Tablet (768px and below)
-=========================== */
-
-@media (max-width: 768px) {
-
-  .restaurant-navbar {
-    padding: 15px 20px;
-  }
-
-  .restaurant-left-section,
-  .restaurant-right-section {
-    padding: 0;
-  }
-
-  .logo-link {
-    gap: 12px;
-    height: auto;
-    padding-top: 0;
-  }
-
-  .restaurant-navbar-logo img {
-    height: 50px;
-  }
-
-  .logo-link h1 {
-    font-size: 20px;
-  }
-
-  .restaurant-nav-links {
-    gap: 20px;
-    padding: 0;
-  }
-
-  .restaurant-nav-links li a {
-    font-size: 15px;
-  }
-
-}
-
-
-/* ===========================
-   Mobile (600px and below)
-=========================== */
-
-@media (max-width: 600px) {
-
-  .restaurant-navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    gap: 15px;
-  }
-
-  .restaurant-left-section,
-  .restaurant-right-section {
-    width: 100%;
-    padding: 0;
-  }
-
-  .logo-link {
-    gap: 10px;
-  }
-
-  .restaurant-navbar-logo img {
-    height: 45px;
-  }
-
-  .logo-link h1 {
     font-size: 18px;
-  }
-
-  .restaurant-nav-links {
-    width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-
-  .restaurant-nav-links li a {
-    font-size: 14px;
-    gap: 5px;
-  }
-
-  .restaurant-nav-links li a svg {
-    font-size: 16px;
-  }
-
 }
 
+/* Hamburger button — hidden on desktop, shown on mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+}
 
 /* ===========================
-   Small Mobile (400px and below)
+   Large tablet / small laptop
 =========================== */
+@media (max-width: 1100px) {
+    .restaurant-navbar {
+        padding: 0 1.5rem;
+    }
 
+    .restaurant-nav-links {
+        gap: 25px;
+    }
+
+    .logo-link {
+        height: 80px;
+        gap: 12px;
+    }
+
+    .restaurant-navbar-logo img {
+        height: 50px;
+    }
+}
+
+/* ===========================
+   Tablet — search drops to its own row
+=========================== */
+@media (max-width: 900px) {
+    .restaurant-navbar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+        padding: 12px 1.2rem;
+    }
+
+    .top2 {
+        order: 3;
+        flex: 1 1 100%;
+    }
+
+    .search-container {
+        max-width: 100%;
+    }
+
+    .logo-link h1 {
+        font-size: 20px;
+    }
+
+    .restaurant-nav-links {
+        gap: 20px;
+    }
+
+    .restaurant-nav-links li a {
+        font-size: 14px;
+    }
+}
+
+/* ===========================
+   Mobile — hamburger menu kicks in
+=========================== */
+@media (max-width: 640px) {
+    .restaurant-navbar {
+        padding: 10px 1rem;
+        position: relative; /* dropdown menu anchors to this */
+    }
+
+    .logo-link {
+        height: auto;
+        gap: 10px;
+    }
+
+    .restaurant-navbar-logo img {
+        height: 42px;
+    }
+
+    .logo-link h1 {
+        font-size: 18px;
+    }
+
+    .top2 {
+        order: 3;
+    }
+
+    .restaurant-right-section {
+        order: 2;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .restaurant-nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: white;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        padding: 10px 0;
+    }
+
+    .restaurant-nav-links.active {
+        display: flex;
+    }
+
+    .restaurant-nav-links li {
+        width: 100%;
+    }
+
+    .restaurant-nav-links li a {
+        width: 100%;
+        padding: 12px 1.5rem;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+}
+
+/* ===========================
+   Small mobile
+=========================== */
 @media (max-width: 400px) {
+    .restaurant-navbar {
+        padding: 10px 0.8rem;
+    }
 
-  .restaurant-navbar {
-    padding: 12px;
-  }
+    .logo-link h1 {
+        font-size: 16px;
+    }
 
-  .restaurant-navbar-logo img {
-    height: 40px;
-  }
+    .restaurant-navbar-logo img {
+        height: 38px;
+    }
 
-  .logo-link h1 {
-    font-size: 16px;
-  }
+    #searchbox {
+        font-size: 0.85rem;
+        text-indent: 2rem;
+        padding: 8px;
+    }
 
-  .restaurant-nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .restaurant-nav-links li {
-    width: 100%;
-  }
-
-  .restaurant-nav-links li a {
-    width: 100%;
-    font-size: 14px;
-  }
-
+    .search-icon {
+        left: 12px;
+    }
 }

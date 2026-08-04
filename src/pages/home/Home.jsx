@@ -1,44 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import Navbar from "../../components/navbar/Navbar";
+import Navbar1 from "../../components/navbar/Navbar1";
 import { assets } from '../../assets/assets';
-import bg3 from "../../assets/bg3.png";
 import logo1 from '../../assets/chef_logo_1.svg'
 import { MdStars } from "react-icons/md";
 import "./Home.css";
-import { FaSearch } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { resData } from '../../assets/mockData ';
 import HorizonScroll from '../../components/HorizonScroll/HorizonScroll';
 
 const Home = () => {
-  const [index, setIndex] = useState(0)
-
-  const texts = [
-    '" Feeling hungry..? Order your food now..! "',
-    "🍛 Craving Biryani?",
-    "🍕 Looking for Pizza?",
-    "🍔 Hungry for Burgers?",
-    "🥗 Healthy Salads Available",
-    "🍗 Try Our Grilled Chicken",
-    "🍜 Explore Delicious Noodles",
-    "🍨 Treat Yourself to Desserts",
-    "☕ Fresh Coffee & Beverages",
-    "🔥 Discover Today's Specials",
-    "⭐ Find Customer Favorites",
-    "👨‍🍳 Taste Chef's Signature Dishes",
-    "🚚 Order Food Delivered Fast"
-
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % texts.length);
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, []);
-
 
   let [data, setData] = useState(null)
   let [cardsData, setCardsData] = useState(null)
@@ -66,19 +37,6 @@ const Home = () => {
     console.log(resData);
   }, [])
 
-  let filterCards = () => {
-    let a = document.getElementById("searchbox").value;
-    let result = data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants.filter((element, index) => {
-      return element.info.name.toLowerCase().includes(a.toLowerCase())
-    })
-    setCardsData(result)
-    setTimeout(() => {
-      menuSection.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 200)
-  }
 
   const scrollLeft = () => {
     scrollRef.current.scrollBy({
@@ -101,34 +59,8 @@ const Home = () => {
 
   return (
 
-    <div className='home-main' style={{ backgroundImage: `url(${bg3})` }}>
-
-      <Navbar />
-
-      <div className="hero">
-
-        <div className="top2">
-          <div className="search-container">
-            <FaSearch onClick={filterCards} className='search-icon' />
-            <input id="searchbox" type="text" placeholder={texts[index]} />
-            {/* <button id='searchbutton' >Search</button> */}
-          </div>
-        </div>
-
-        <h1>Delicious Food Delivered to Your Doorstep</h1>
-
-        <p>
-          Order from your favorite restaurants and enjoy fast, reliable delivery.
-          Explore a wide variety of cuisines, discover new places, and satisfy
-          your cravings anytime, anywhere.
-        </p>
-
-        <div className="hero-btns">
-          <button >Order Now</button>
-          <button>Browse Restaurants</button>
-        </div>
-      </div>
-
+    <div className='home-main'>
+      <Navbar1 />
 
       <div className="menu-wrapper">
         <div className="topmenuhead">
@@ -144,7 +76,7 @@ const Home = () => {
         <div className="menutop" ref={scrollRef}>
           {data.data.cards[0].card.card.imageGridCards.info.map((element, index) => {
             return (<div className="top" key={element.id}>
-              <img src={img_url + element.imageId} style={{ width: '150px' }} />
+              <img src={img_url + element.imageId} style={{ width: '130px' }} />
             </div>
 
             )
