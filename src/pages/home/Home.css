@@ -132,9 +132,11 @@
 
 .home-main #menuheader{
     margin-top: 2%;
+    font-size: 19px;
 }
 .home-main .topmenuhead{
     margin-top: 8%;
+    font-size: 13px;
 }
 
 .topmenuhead{
@@ -156,7 +158,6 @@
     margin-left:auto;
     margin-right:auto;
     padding:0 20px;
-    font-size: smallx;
 }
 
 @media (min-width: 1400px) {
