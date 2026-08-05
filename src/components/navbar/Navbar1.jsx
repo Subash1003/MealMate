@@ -8,10 +8,12 @@ import { LuContactRound } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
 import { useSelector } from 'react-redux';
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+// import Home from '../../pages/home/Home';
 
 const Navbar1 = () => {
     const [index, setIndex] = useState(0)
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)  
+   
 
     const texts = [
         '" Feeling hungry..? Order your food now..! "',

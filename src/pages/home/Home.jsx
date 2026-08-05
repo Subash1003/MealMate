@@ -13,8 +13,8 @@ import HomeShimmer from '../../components/shimmer/HomeShimmer';
 const Home = () => {
 
   let [data, setData] = useState(null)
-  let [cardsData, setCardsData] = useState(null)
   const menuSection = useRef(null);
+  let [cardsData, setCardsData] = useState(null)
 
   const scrollRef = useRef(null);
 
@@ -81,7 +81,7 @@ const Home = () => {
         <div className="menutop" ref={scrollRef}>
           {data.data.cards[0].card.card.imageGridCards.info.map((element, index) => {
             return (<div className="top" key={element.id}>
-              <img src={img_url + element.imageId} style={{ width: '130px' }} />
+              <img src={img_url + element.imageId} style={{ width: '110px' }} />
             </div>
 
             )
