@@ -13,6 +13,14 @@ import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 const Navbar1 = () => {
     const [index, setIndex] = useState(0)
     const [menuOpen, setMenuOpen] = useState(false)  
+
+    const [svgSrc, setSvgSrc] = useState(logo);
+      useEffect(() =>{
+    
+        const replayAnimation = setInterval(() => {
+          setSvgSrc(`${logo}?t=${Date.now()}`);
+        },8000);
+      },[]);
    
 
     const texts = [

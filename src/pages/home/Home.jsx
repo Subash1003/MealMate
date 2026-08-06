@@ -81,7 +81,7 @@ const Home = () => {
         <div className="menutop" ref={scrollRef}>
           {data.data.cards[0].card.card.imageGridCards.info.map((element, index) => {
             return (<div className="top" key={element.id}>
-              <img src={img_url + element.imageId} style={{ width: '110px' }} />
+              <img className='round' src={img_url + element.imageId}  />
             </div>
 
             )
