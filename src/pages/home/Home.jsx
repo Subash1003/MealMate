@@ -3,7 +3,6 @@ import Navbar1 from "../../components/navbar/Navbar1";
 import { assets } from '../../assets/assets';
 import logo1 from '../../assets/chef_logo_1.svg'
 import { MdStars } from "react-icons/md";
-import bg3 from "../../assets./bg3.png";
 import "./Home.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
