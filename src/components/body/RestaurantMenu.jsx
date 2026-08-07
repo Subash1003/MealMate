@@ -20,12 +20,13 @@ import RestaurantMenuShimmer from "../shimmer/RestaurantMenuShimmer";
 const RestaurantMenu = () => {
 
 
-    const dispatch =useDispatch();
+    const dispatch = useDispatch();
     const restRef = useRef(null);
     const [menuData, setMenuData] = useState(null);
 
     const [openSections, setOpenSections] = useState([]);
     const [openCategories, setOpenCategories] = useState([]);
+    const [expandedItems, setExpandedItems] = useState({});
 
     const { id } = useParams();
 
@@ -61,12 +62,12 @@ const RestaurantMenu = () => {
 
 
     if (!menuData) {
-         return (
-        <>
-            <Navbar1 />
-            <RestaurantMenuShimmer />
-        </>
-    );
+        return (
+            <>
+                <Navbar1 />
+                <RestaurantMenuShimmer />
+            </>
+        );
     }
 
     const scrollLeft = () => {
@@ -100,6 +101,12 @@ const RestaurantMenu = () => {
         );
     };
 
+    const toggleDescription = (id) => {
+        setExpandedItems((prev) => ({
+            ...prev,
+            [id]: !prev[id],
+        }));
+    };
     const data0 = menuData.data.cards[0].card.card;
     const data1 = menuData.data.cards[1].card.card.tabs;
     const data2 = menuData.data.cards[2].card.card.info;
@@ -122,7 +129,7 @@ const RestaurantMenu = () => {
             <div className="main">
                 <div className="sub">
                     <h1>{data2.name}</h1>
-                    
+
                     <div className="box"
                         style={{
                             backgroundImage: ` linear-gradient(
@@ -193,8 +200,8 @@ const RestaurantMenu = () => {
                                                     className={`dropdown-icon ${openSections.includes(index) ? "open" : ""
                                                         }`}
                                                 />
-                                            )} 
-                                            </div>
+                                            )}
+                                        </div>
                                         <div className="line"></div>
 
                                         {openSections.includes(index) && (
@@ -210,11 +217,27 @@ const RestaurantMenu = () => {
                                                                     <span>{item.card.info.ratings?.aggregatedRating?.rating}</span>
                                                                     <span>({item.card.info.ratings?.aggregatedRating?.ratingCountV2})</span>
                                                                 </div>
-                                                                <p className="description">{item.card.info.description}</p>
+                                                                <p className="description">
+                                                                    {expandedItems[item.card.info.id]
+                                                                        ? item.card.info.description
+                                                                        : item.card.info.description?.slice(0, 100)}
+
+                                                                    {item.card.info.description?.length > 100 && (
+                                                                        <>
+                                                                            {!expandedItems[item.card.info.id] && "... "}
+                                                                            <span
+                                                                                className="more-btn"
+                                                                                onClick={() => toggleDescription(item.card.info.id)}
+                                                                            >
+                                                                                {expandedItems[item.card.info.id] ? "Less" : "More"}
+                                                                            </span>
+                                                                        </>
+                                                                    )}
+                                                                </p>
                                                             </div>
                                                             <div className="image-wrapper">
                                                                 <img className="item-image" src={item.card.info.imageId ? img + item.card.info.imageId : assets.noimage} />
-                                                                <button onClick={()=> dispatch(addItems(item))} className="addButton">ADD</button>
+                                                                <button onClick={() => dispatch(addItems(item))} className="addButton">ADD</button>
                                                             </div>
                                                         </div>
 
@@ -245,11 +268,27 @@ const RestaurantMenu = () => {
                                                                                         <span>{item.card.info.ratings.aggregatedRating.rating}</span>
                                                                                         <span>({item.card.info.ratings.aggregatedRating.ratingCountV2})</span>
                                                                                     </div>
-                                                                                    <p className="description">{item.card.info.description}</p>
+                                                                                    <p className="description">
+                                                                                        {expandedItems[item.card.info.id]
+                                                                                            ? item.card.info.description
+                                                                                            : item.card.info.description?.slice(0, 100)}
+
+                                                                                        {item.card.info.description?.length > 100 && (
+                                                                                            <>
+                                                                                                {!expandedItems[item.card.info.id] && "... "}
+                                                                                                <span
+                                                                                                    className="more-btn"
+                                                                                                    onClick={() => toggleDescription(item.card.info.id)}
+                                                                                                >
+                                                                                                    {expandedItems[item.card.info.id] ? "Less" : "More"}
+                                                                                                </span>
+                                                                                            </>
+                                                                                        )}
+                                                                                    </p>
                                                                                 </div>
                                                                                 <div className="image-wrapper">
                                                                                     <img className="item-image" src={item.card.info.imageId ? img + item.card.info.imageId : assets.noimage} />
-                                                                                    <button onClick={()=> dispatch(addItems(item))} className="addButton">ADD</button>
+                                                                                    <button onClick={() => dispatch(addItems(item))} className="addButton">ADD</button>
                                                                                 </div>
                                                                             </div>
                                                                         )
@@ -300,7 +339,7 @@ const RestaurantMenu = () => {
 
             </div>
 
-                        {/* <div className="cart-box">
+            {/* <div className="cart-box">
 
                             <Cart/>
                         </div> */}
