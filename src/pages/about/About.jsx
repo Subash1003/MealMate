@@ -2,7 +2,6 @@ import React from 'react'
 import "./About.css";
 import Navbar1 from '../../components/navbar/Navbar1';
 import bg3 from "../../assets/bg3.png";
-import aboutmob from "../../assets./aboutmob.png";
 
 const About = () => {
   return (

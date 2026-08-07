@@ -10,7 +10,6 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-image: url('../../assets./aboutmob.png');
 }
 
 .hero {
@@ -93,7 +92,6 @@
 @media (max-width: 768px) {
     .outer {
         padding: 20px 15px;
-        /* background-image: url('../../assets./aboutmob.png'); */
     }
 
     .hero {
