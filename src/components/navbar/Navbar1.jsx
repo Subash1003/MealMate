@@ -97,11 +97,33 @@ const Navbar1 = () => {
 
             <div className="restaurant-right-section">
                 <ul className={`restaurant-nav-links ${menuOpen ? "active" : ""}`}>
-                    <li><a href="/" onClick={() => setMenuOpen(false)}><GoHome />Home</a></li>
-                    <li><a href="/About" onClick={() => setMenuOpen(false)}><GoInfo />About</a></li>
-                    <li><a onClick={() => setMenuOpen(false)}><RiServiceBellLine />Service</a></li>
-                    <li><a onClick={() => setMenuOpen(false)}><LuContactRound />Contact</a></li>
-                    <li><Link to="/Cart" onClick={() => setMenuOpen(false)}><BsCart3 />Cart({ab.length})</Link></li>
+                   <li>
+  <Link to="/" onClick={() => setMenuOpen(false)}>
+    <GoHome />
+    Home
+  </Link>
+</li>
+
+<li>
+  <Link to="/About" onClick={() => setMenuOpen(false)}>
+    <GoInfo />
+    About
+  </Link>
+</li>
+
+<li>
+  <Link to="/Contact" onClick={() => setMenuOpen(false)}>
+    <LuContactRound />
+    Contact
+  </Link>
+</li>
+
+<li>
+  <Link to="/Cart" onClick={() => setMenuOpen(false)}>
+    <BsCart3 />
+    Cart({ab.length})
+  </Link>
+</li>
                 </ul>
             </div>
         </div>

@@ -290,6 +290,40 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
+.quantityBox {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 110px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: #fff;
+    border: 1px solid #d4d5d9;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.quantityBox button {
+    border: none;
+    background: transparent;
+    color: #1ba672;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quantityBox span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
 /* ==========================================
    Mobile Responsive (max-width: 768px)
    Add this at the END of your CSS
@@ -383,6 +417,24 @@
     .description {
         font-size: 14px;
     }
+     .quantityBox{
+        width: 95px;
+        height: 36px;
+        bottom: -12px;
+        border-radius: 10px;
+    }
+
+    .quantityBox button{
+        font-size: 18px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .quantityBox span{
+        font-size: 14px;
+    }
+
+
 
     /* Cart */
 
@@ -483,6 +535,23 @@
         font-size: 13px;
     }
 
+     .quantityBox{
+        width: 85px;
+        height: 32px;
+        bottom: -10px;
+        border-radius: 8px;
+    }
+
+    .quantityBox button{
+        width: 24px;
+        height: 24px;
+        font-size: 16px;
+    }
+
+    .quantityBox span{
+        font-size: 13px;
+        font-weight: 600;
+    }
 
 
 }

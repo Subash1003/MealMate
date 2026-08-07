@@ -4,6 +4,7 @@ import Home from './pages/home/Home.jsx';
 import About from './pages/about/About.jsx';
 import RestaurantMenu from './components/body/RestaurantMenu.jsx';
 import Cart from './pages/Cart.jsx';
+import Contact from './pages/contact/Contact.jsx'
 let route = createBrowserRouter([
       {
         path:"/",
@@ -16,6 +17,10 @@ let route = createBrowserRouter([
       {
         path:"/Restaurant/:id",
         element:<RestaurantMenu/>
+      },
+      {
+        path:"/Contact",
+        element:<Contact/>
       },
       {
         path:"/Cart",

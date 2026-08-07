@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { addItems } from "../../redux/CardSlice";
+import { addItems, increaseQuantity, decreaseQuantity, } from "../../redux/CardSlice";
 
 import { resMenuData } from "../../assets/resMockData";
 import { useParams } from "react-router";
@@ -17,19 +17,21 @@ import Navbar1 from "../../components/navbar/Navbar1";
 import Cart from "../../pages/Cart";
 import RestaurantMenuShimmer from "../shimmer/RestaurantMenuShimmer";
 
+
 const RestaurantMenu = () => {
 
 
-    const dispatch = useDispatch();
     const restRef = useRef(null);
     const [menuData, setMenuData] = useState(null);
 
     const [openSections, setOpenSections] = useState([]);
     const [openCategories, setOpenCategories] = useState([]);
     const [expandedItems, setExpandedItems] = useState({});
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items);
 
     const { id } = useParams();
-
+   window.scrollTo(0,0);
 
     useEffect(() => {
         const result = resMenuData.find(
@@ -207,6 +209,11 @@ const RestaurantMenu = () => {
                                         {openSections.includes(index) && (
                                             <div className="items-list">
                                                 {element.card.card.itemCards?.map((item, index) => {
+                                                    const cartItem = cartItems.find(
+                                                        (i) => i.card.info.id === item.card.info.id
+                                                    );
+
+                                                    const quantity = cartItem?.quantity || 0;
                                                     return (
                                                         <div className="item-card" key={item.card.info.id}>
                                                             <div className="item-details">
@@ -237,7 +244,35 @@ const RestaurantMenu = () => {
                                                             </div>
                                                             <div className="image-wrapper">
                                                                 <img className="item-image" src={item.card.info.imageId ? img + item.card.info.imageId : assets.noimage} />
-                                                                <button onClick={() => dispatch(addItems(item))} className="addButton">ADD</button>
+                                                                {quantity === 0 ? (
+                                                                    <button
+                                                                        className="addButton" onClick={() => dispatch(addItems(item))}
+                                                                    >
+                                                                        ADD
+                                                                    </button>
+                                                                ) : (
+                                                                    <div className="quantityBox">
+
+                                                                        <button
+                                                                            onClick={() =>
+                                                                                dispatch(decreaseQuantity(item.card.info.id))
+                                                                            }
+                                                                        >
+                                                                            −
+                                                                        </button>
+
+                                                                        <span>{quantity}</span>
+
+                                                                        <button
+                                                                            onClick={() =>
+                                                                                dispatch(increaseQuantity(item.card.info.id))
+                                                                            }
+                                                                        >
+                                                                            +
+                                                                        </button>
+
+                                                                    </div>
+                                                                )}
                                                             </div>
                                                         </div>
 
@@ -258,6 +293,11 @@ const RestaurantMenu = () => {
 
                                                                 {openCategories.includes(Cindex) &&
                                                                     item.itemCards.map((item, index) => {
+                                                                        const cartItem = cartItems.find(
+                                                                            (i) => i.card.info.id === item.card.info.id );
+
+                                                                        const quantity = cartItem?.quantity || 0;
+
                                                                         return (
                                                                             <div className="item-card" key={item.card.info.id} style={{ paddingLeft: '3.5%' }}>
                                                                                 <div className="item-details">
@@ -288,7 +328,36 @@ const RestaurantMenu = () => {
                                                                                 </div>
                                                                                 <div className="image-wrapper">
                                                                                     <img className="item-image" src={item.card.info.imageId ? img + item.card.info.imageId : assets.noimage} />
-                                                                                    <button onClick={() => dispatch(addItems(item))} className="addButton">ADD</button>
+                                                                                    {quantity === 0 ? (
+                                                                                        <button
+                                                                                            className="addButton"
+                                                                                            onClick={() => dispatch(addItems(item))}
+                                                                                        >
+                                                                                            ADD
+                                                                                        </button>
+                                                                                    ) : (
+                                                                                        <div className="quantityBox">
+
+                                                                                            <button
+                                                                                                onClick={() =>
+                                                                                                    dispatch(decreaseQuantity(item.card.info.id))
+                                                                                                }
+                                                                                            >
+                                                                                                −
+                                                                                            </button>
+
+                                                                                            <span>{quantity}</span>
+
+                                                                                            <button
+                                                                                                onClick={() =>
+                                                                                                    dispatch(increaseQuantity(item.card.info.id))
+                                                                                                }
+                                                                                            >
+                                                                                                +
+                                                                                            </button>
+
+                                                                                        </div>
+                                                                                    )}
                                                                                 </div>
                                                                             </div>
                                                                         )

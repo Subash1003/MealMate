@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     z-index: 1000;
 
     display: flex;
@@ -13,13 +14,13 @@
 
     color: white;
     border: 1px solid lightgray;
-    border-radius: 16px;
+    border-radius: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
     background-color: white;
     box-sizing: border-box;
-    padding: 0 3rem;
+    padding: 0 1rem;
 
       font-family: 'Poppins', 'Montserrat', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -64,6 +65,7 @@
 #searchbox {
     width: 100%;
     text-indent: 2.5rem;
+    font-size: 11px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(249, 246, 246, 0.977);
@@ -102,7 +104,7 @@
     text-decoration: none;
     color: black;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     white-space: nowrap;
     transition: color 0.3s ease;
 }
@@ -123,7 +125,7 @@
     font-size: 24px;
     color: black;
     cursor: pointer;
-    padding: 8px;
+    padding: 5px;
     line-height: 1;
 }
 
@@ -187,6 +189,8 @@
 @media (max-width: 640px) {
     .restaurant-navbar {
         padding: 10px 1rem;
+        height: 120px;
+        width: 100%;
         position: relative; /* dropdown menu anchors to this */
     }
 
@@ -214,7 +218,7 @@
     .menu-toggle {
         display: block;
         order: 2;
-        margin-left: 40%;
+        margin-left: 45%;
     }
 
     .restaurant-nav-links {
@@ -246,6 +250,9 @@
         font-size: 15px;
         box-sizing: border-box;
     }
+    #searchbox{
+        font-size: 0.65rem;
+    }
 }
 
 /* ===========================
@@ -254,6 +261,8 @@
 @media (max-width: 400px) {
     .restaurant-navbar {
         padding: 10px 0.8rem;
+         height: 120px;
+        width: 100%;
     }
 
     .logo-link h1 {
@@ -265,7 +274,7 @@
     }
 
     #searchbox {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         text-indent: 2rem;
         padding: 8px;
     }
