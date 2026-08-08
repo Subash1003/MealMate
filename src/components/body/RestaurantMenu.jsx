@@ -31,7 +31,6 @@ const RestaurantMenu = () => {
     const cartItems = useSelector((state) => state.cart.items);
 
     const { id } = useParams();
-   window.scrollTo(0,0);
 
     useEffect(() => {
         const result = resMenuData.find(

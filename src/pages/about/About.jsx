@@ -1,6 +1,8 @@
 import React from "react";
 import "./About.css";
 import Navbar1 from "../../components/navbar/Navbar1";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   FaMotorcycle,
   FaUtensils,
@@ -25,7 +27,9 @@ const About = () => {
             experience.
           </p>
 
+          <Link to="/">
           <button>Order Now</button>
+          </Link>
         </section>
 
         {/* About Content */}
@@ -52,11 +56,6 @@ const About = () => {
           </div>
 
           <div className="about-right">
-
-            <img
-              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800"
-              alt="Food"
-            />
 
           </div>
 
