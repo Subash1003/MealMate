@@ -1,0 +1,117 @@
+/* =====================================================================
+   Cart indicator — mobile bottom bar + desktop bottom-centre popup.
+   ===================================================================== */
+
+/* ---------- Mobile: fixed bottom bar ---------- */
+
+.cart-indicator-bar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .cart-indicator-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+
+    background: #ff5200;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Poppins", "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .cart-indicator-bar__info {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .cart-indicator-bar__cta {
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .cart-indicator-bar__cta::after {
+    content: " \2192";
+  }
+
+  /* keep the fixed bar from covering the last bit of page content */
+  body.cart-bar-open {
+    padding-bottom: 60px;
+  }
+}
+
+/* ---------- Desktop: bottom-centre popup ---------- */
+
+.cart-indicator-toast {
+  display: none;
+}
+
+@media (min-width: 641px) {
+  .cart-indicator-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 1200;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px;
+    border-radius: 999px;
+
+    background: #1e2233;
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    font-family: "Poppins", "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+
+    transform: translate(-50%, 24px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+  }
+
+  .cart-indicator-toast.is-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cart-indicator-toast svg {
+    color: #ff8a00;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .cart-indicator-toast__link {
+    margin-left: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #ff5200;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-indicator-toast {
+    transition: opacity 0.2s ease;
+  }
+}

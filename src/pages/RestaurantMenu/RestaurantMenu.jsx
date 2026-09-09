@@ -12,6 +12,7 @@ import "./RestaurantMenu.css"
 import HorizonScroll from "../../components/HorizonScroll/HorizonScroll";
 import { assets } from "../../assets/assets";
 import Navbar from "../../components/Navbar/Navbar";
+import CartIndicator from "../../components/CartIndicator/CartIndicator";
 import RestaurantMenuShimmer from "../../components/Shimmer/RestaurantMenuShimmer";
 import { MEDIA_ASSETS_URL } from "../../utils/constants";
 import { filterMenuGroupCards } from "../../utils/search";
@@ -134,6 +135,7 @@ const RestaurantMenu = () => {
     return (
         <div className="the-one">
             <Navbar />
+            <CartIndicator />
 
 
             <div className="main">

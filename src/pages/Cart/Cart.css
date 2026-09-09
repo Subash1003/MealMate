@@ -502,10 +502,20 @@
 @media (max-width: 560px) {
   .cart-page { margin-top: 130px; padding: 14px; }
 
+  /* Keep "Add more items" on the same row, pinned to the right of the title. */
   .cart-page .cart-head {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 10px;
+  }
+
+  /* Compact so it fits beside the heading on small screens. */
+  .cart-page .cart-head__back {
+    flex-shrink: 0;
+    gap: 5px;
+    padding: 6px 11px;
+    font-size: 0.72rem;
   }
 
   .cart-page .cart-item {
@@ -531,6 +541,13 @@
   }
 
   .cart-page .cart-item__body h2 { font-size: 0.98rem; }
+}
+
+/* At this width the navbar is position:relative (in normal flow), so the
+   page must not reserve extra top spacing for it — the leftover margin-top
+   was showing as a gap between the navbar and the cart content on mobile. */
+@media (max-width: 640px) {
+  .cart-page { margin-top: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
