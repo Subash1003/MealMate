@@ -81,7 +81,7 @@ function Cart() {
               Go ahead, order some yummy items from the menu.
             </p>
 
-            <Link to="/" className="empty-cart__btn">
+            <Link to="/Restaurant" className="empty-cart__btn">
               Browse Restaurants
             </Link>
           </div>

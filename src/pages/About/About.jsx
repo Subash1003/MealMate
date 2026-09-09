@@ -105,7 +105,7 @@ const About = () => {
               delivery, fresh meals and an effortless ordering experience —
               crafted for people who love good food.
             </p>
-            <Link to="/" className="ab-btn ab-btn--solid">
+            <Link to="/Restaurant" className="ab-btn ab-btn--solid">
               Order Now
             </Link>
           </div>
@@ -201,7 +201,7 @@ const About = () => {
           <div className="ab-cta__inner">
             <h2>Hungry yet?</h2>
             <p>Your next favourite meal is just a few taps away.</p>
-            <Link to="/" className="ab-btn ab-btn--solid">
+            <Link to="/Restaurant" className="ab-btn ab-btn--solid">
               Explore Restaurants
             </Link>
           </div>
