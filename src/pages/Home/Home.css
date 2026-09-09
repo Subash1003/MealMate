@@ -1,0 +1,429 @@
+/* =====================================================================
+   HOME (landing page)  —  scoped under .landing-page
+   ===================================================================== */
+
+.landing-page {
+  --brand: #ff5200;
+  --brand-2: #ff8a00;
+  --ink: #282c3f;
+  --muted: #686b78;
+  --line: #ececf0;
+  --card: #ffffff;
+  --radius: 22px;
+  --shadow: 0 10px 34px rgba(40, 44, 63, 0.09);
+  --shadow-hover: 0 18px 48px rgba(255, 82, 0, 0.18);
+
+  margin-top: 80px;
+  color: var(--ink);
+  overflow-x: hidden;
+  font-family: "Poppins", "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+.landing-page h1,
+.landing-page h2,
+.landing-page h3 {
+  line-height: 1.2;
+}
+
+/* ---------- shared bits ---------- */
+
+.landing-page .lp-kicker {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.landing-page .lp-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.landing-page .lp-btn--solid {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(255, 82, 0, 0.32);
+}
+
+.landing-page .lp-btn--solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(255, 82, 0, 0.42);
+}
+
+.landing-page .lp-btn--ghost {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.landing-page .lp-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+/* ---------- Hero ---------- */
+
+.landing-page .lp-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 90px 24px;
+  background-color: #171009;
+}
+
+.landing-page .lp-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.landing-page .lp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+      105deg,
+      rgba(18, 12, 8, 0.86) 0%,
+      rgba(18, 12, 8, 0.6) 45%,
+      rgba(18, 12, 8, 0.35) 100%
+    ),
+    radial-gradient(120% 120% at 0% 100%, rgba(255, 82, 0, 0.28), transparent 55%);
+}
+
+.landing-page .lp-hero__inner {
+  width: 100%;
+  min-width: 0;
+  max-width: 600px;
+  margin: 0 auto 0 max(24px, calc((100% - 1240px) /4));
+  color: #fff;
+}
+
+.landing-page .lp-hero__inner h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+  overflow-wrap: break-word;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+.landing-page .lp-hero__inner h1 span {
+  color: var(--brand-2);
+}
+
+.landing-page .lp-hero__inner p {
+  font-size: clamp(1rem, 1.6vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 30px;
+  max-width: 34ch;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.landing-page .lp-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- generic section ---------- */
+
+.landing-page .lp-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+.landing-page .lp-head {
+  position: relative;
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.landing-page .lp-head h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+}
+
+.landing-page .lp-seeall {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.landing-page .lp-seeall::after {
+  content: " \2192";
+}
+
+/* ---------- Featured restaurants ---------- */
+
+.landing-page .lp-rest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.landing-page .lp-rest-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-page .lp-rest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.landing-page .lp-rest-card__img {
+  position: relative;
+}
+
+.landing-page .lp-rest-card__img img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-page .lp-rest-card__img::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  pointer-events: none;
+}
+
+.landing-page .lp-rest-card__offer {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  z-index: 1;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.landing-page .lp-rest-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 16px 0;
+}
+
+.landing-page .lp-rest-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.landing-page .lp-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 700;
+  color: #1c7c3a;
+}
+
+.landing-page .lp-rest-card p {
+  padding: 4px 16px 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.landing-page .lp-rest-card__area {
+  padding-bottom: 16px;
+}
+
+/* ---------- Responsive: tablet ---------- */
+
+@media (max-width: 900px) {
+  .landing-page .lp-rest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =====================================================================
+   MOBILE (<=640px) — Home fits in a single viewport, no page scroll:
+   hero video fills the top ~half, the "Handpicked for you" section with
+   all 6 cards (3 x 2 grid) fills the bottom ~half. Flex/percentage based
+   so it adapts to any phone size rather than one fixed height.
+   ===================================================================== */
+
+@media (max-width: 640px) {
+  .landing-page {
+    margin-top: 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Shared navbar keeps its own height; the two halves split the rest. */
+  .landing-page .restaurant-navbar {
+    flex: 0 0 auto;
+  }
+
+  /* ---- Top half: hero video ---- */
+  .landing-page .lp-hero {
+    flex: 1 1 0;
+    min-height: 0;
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .landing-page .lp-hero__inner {
+    margin: 0 0 14px 16px;
+    max-width: 84%;
+  }
+
+  .landing-page .lp-hero__inner h1 {
+    font-size: clamp(1.1rem, 5.4vw, 1.6rem);
+    margin-bottom: 10px;
+  }
+
+  .landing-page .lp-hero__inner p {
+    display: none;
+  }
+
+  .landing-page .lp-hero__cta {
+    gap: 8px;
+  }
+
+  .landing-page .lp-hero__cta .lp-btn {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+  }
+
+  /* ---- Bottom half: Handpicked for you.
+     Takes a bit more than half so the heading + all 6 cards clear the fold. ---- */
+  .landing-page .lp-section {
+    flex: 1.5 1 0;
+    min-height: 0;
+    margin: 0;
+    padding: 8px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .landing-page .lp-head {
+    flex: 0 0 auto;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .landing-page .lp-kicker {
+    font-size: 0.58rem;
+    margin-bottom: 1px;
+  }
+
+  .landing-page .lp-head h2 {
+    font-size: 0.95rem;
+  }
+
+  .landing-page .lp-seeall {
+    position: static;
+    display: inline-block;
+    margin-top: 2px;
+    font-size: 0.72rem;
+  }
+
+  .landing-page .lp-rest-grid {
+    flex: 1 1 auto;
+    min-height: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .landing-page .lp-rest-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 12px;
+    padding-bottom: 6px;
+  }
+
+  .landing-page .lp-rest-card__img {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .landing-page .lp-rest-card__img img {
+    height: 100%;
+  }
+
+  .landing-page .lp-rest-card h3 {
+    font-size: 0.72rem;
+    padding: 4px 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .landing-page .lp-rest-card__meta {
+    padding: 2px 6px 0;
+    font-size: 0.62rem;
+    gap: 6px;
+  }
+
+  /* Show only the rating on tiny cards; hide the delivery-time span. */
+  .landing-page .lp-rest-card__meta > span:not(.lp-rating) {
+    display: none;
+  }
+
+  /* Cuisine + area lines removed on mobile so all 6 cards stay in view. */
+  .landing-page .lp-rest-card p {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .lp-hero__video {
+    display: none;
+  }
+
+  .landing-page .lp-hero {
+    background: linear-gradient(135deg, #2a1a0e, #4a2c12);
+  }
+
+  .landing-page .lp-btn,
+  .landing-page .lp-rest-card {
+    transition: none;
+  }
+}

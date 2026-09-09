@@ -1,10 +1,11 @@
-import Navbar from './components/navbar/Navbar.jsx';
-import {Outlet,BrowserRouter,createBrowserRouter,RouterProvider} from "react-router-dom";
-import Home from './pages/home/Home.jsx';
-import About from './pages/about/About.jsx';
-import RestaurantMenu from './components/body/RestaurantMenu.jsx';
-import Cart from './pages/Cart.jsx';
-import Contact from './pages/contact/Contact.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from './pages/Home/Home.jsx';
+import About from './pages/About/About.jsx';
+import Restaurant from './pages/Restaurant/Restaurant.jsx';
+import RestaurantMenu from './pages/RestaurantMenu/RestaurantMenu.jsx';
+import Cart from './pages/Cart/Cart.jsx';
+import Contact from './pages/Contact/Contact.jsx';
+
 let route = createBrowserRouter([
       {
         path:"/",
@@ -13,6 +14,10 @@ let route = createBrowserRouter([
       {
         path:"/About",
         element:<About/>
+      },
+      {
+        path:"/Restaurant",
+        element:<Restaurant/>
       },
       {
         path:"/Restaurant/:id",

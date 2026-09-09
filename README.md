@@ -27,21 +27,25 @@ MealMate lets users explore a variety of restaurants, view detailed menu items, 
 ```
 food/
 ├── src/
-│   ├── assets/              # Images and static assets
-│   ├── components/
-│   │   ├── body/
-│   │   │   ├── RestaurantMenu.jsx
-│   │   │   └── HorizonScroll/
-│   │   └── navbar/
-│   │       └── Navbar.jsx
-│   ├── pages/
-│   │   ├── about/
-│   │   └── home/
-│   │       └── Home.jsx
+│   ├── assets/                  # Images, static assets and mock data
+│   │   └── assets.js
+│   ├── components/              # Shared, reusable UI
+│   │   ├── Navbar/
+│   │   ├── HorizonScroll/
+│   │   └── Shimmer/
+│   │       ├── HomeShimmer.jsx
+│   │       └── RestaurantMenuShimmer.jsx
+│   ├── pages/                   # One folder per route
+│   │   ├── Home/
+│   │   ├── RestaurantMenu/
+│   │   ├── Cart/
+│   │   ├── About/
+│   │   └── Contact/
 │   ├── redux/
-│   │   ├── CardSlice.jsx    # Cart state management
-│   │   └── Store.jsx        # Redux store configuration
-│   ├── Cart.jsx
+│   │   ├── cartSlice.js         # Cart state management
+│   │   └── store.js             # Redux store configuration
+│   ├── utils/
+│   │   └── constants.js         # Shared constants (CDN base URLs)
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx

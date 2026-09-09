@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.the-one {
+    display: flex;
+}
+
+.cart-box {
+    position: fixed;
+    top: 180px;
+    right: 60px;
+    border: 1px solid transparent;
+    height: 500px;
+    width: 400px;
+    background-color: white;
+}
+
+.main {
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.86);
+}
+
+.sub {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.sub h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 150px;
+    margin-bottom: 20px;
+}
+
+.box {
+    border: 1px solid #e2e2e2;
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-top: 20px;
+    margin-top: 20px;
+
+}
+
+.ratingline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: white;
+}
+
+#star {
+    color: green;
+}
+
+#dot {
+    color: #8a8a8a;
+}
+
+.remaining {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    gap: 10px;
+    color: white;
+}
+
+#cuisines {
+    color: white;
+    font-weight: 700;
+}
+
+.Deals {
+    margin-top: 35px;
+}
+
+.deals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deals-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.deal-list {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+}
+
+.deal-list::-webkit-scrollbar {
+    display: none;
+}
+
+.deal-card {
+    min-width: 250px;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 12px;
+    flex-shrink: 0;
+    transition: transform 0.4s ease;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.deal-card:hover {
+    transform: perspective(1000px) translateZ(40px);
+}
+
+
+.deal-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.deal-content {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.deal-content span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282c3f;
+}
+
+.deal-content p {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 3px;
+    color: #7e808c;
+}
+
+
+
+.recommended {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.recommended .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.types h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-bottom: 5px;
+}
+
+.type-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.item-card:last-child {
+    border-bottom: none;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    /* keeps text from overflowing in a flex item */
+}
+
+.item-details h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #050505;
+    margin-bottom: 6px;
+    padding-top: 5px;
+}
+
+.rating {
+    display: flex;
+    gap: 4px;
+    font-size: 15px;
+    color: #000000;
+    padding-top: 10px;
+    margin-bottom: 8px;
+}
+
+.rating #star {
+    color: #267e3e;
+    /* font-size: 14px; */
+}
+
+.description {
+    font-size: 15px;
+    color: #686b78;
+    line-height: 1.4;
+}
+
+.more-btn {
+    color: #ff5200;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 5px;
+    user-select: none;
+}
+
+.more-btn:hover {
+    text-decoration: underline;
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.item-image {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.addButton {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #fff;
+    color: #1ba672;
+    border: 1px solid #d4d5d9;
+
+    padding: 10px 35px;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s ease;
+}
+
+.addButton:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.quantityBox {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 110px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: #fff;
+    border: 1px solid #d4d5d9;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.quantityBox button {
+    border: none;
+    background: transparent;
+    color: #1ba672;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quantityBox span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   Mobile Responsive (max-width: 768px)
+   Add this at the END of your CSS
+========================================== */
+
+@media screen and (max-width: 768px) {
+
+    .the-one {
+        display: block;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .sub {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .sub h1 {
+        padding-top: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 18px;
+    }
+
+    .box {
+        padding: 15px;
+    }
+
+    .ratingline {
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+
+    .remaining {
+        font-size: 14px;
+    }
+
+    .deal-list {
+        gap: 10px;
+    }
+
+    .deals-header h2 {
+        font-size: 16px;
+    }
+
+    .recommended {
+        padding: 10px 0;
+    }
+
+    .type-header {
+        padding: 10px 0;
+    }
+
+    .item-card {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .item-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .item-details {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .image-wrapper {
+        width: 130px;
+        flex-shrink: 0;
+    }
+
+    .item-image {
+        width: 130px;
+        border-radius: 12px;
+    }
+
+    .addButton {
+        width: 100px;
+        padding: 10px 0;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+     .quantityBox{
+        width: 95px;
+        height: 36px;
+        bottom: -12px;
+        border-radius: 10px;
+    }
+
+    .quantityBox button{
+        font-size: 18px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .quantityBox span{
+        font-size: 14px;
+    }
+
+
+
+    /* Cart */
+
+    .cart-box {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 30px 0;
+    }
+
+    .restaurant-footer {
+        width: calc(100% - 32px);
+        margin: 40px auto;
+    }
+}
+
+
+/* Small phones */
+
+@media screen and (max-width: 480px) {
+
+    .sub {
+        padding: 0 12px;
+    }
+
+    .sub h1 {
+        font-size: 20px;
+    }
+
+    .deal-card {
+        min-width: 180px;
+    }
+
+    .deal-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .deal-content span {
+        font-size: 12px;
+    }
+
+    .deal-content p {
+        font-size: 10px;
+    }
+    .deal-content p {
+        margin: 0px;
+    }
+    .line {
+    height: 0;
+    border-radius: 0px;
+    margin-top: 0px;
+}
+    @media (max-width:480px) {
+
+        .image-wrapper {
+            width: 115px;
+            margin-top: 16px;
+        }
+
+        .item-image {
+            width: 115px;
+            height: 115px;
+        }
+
+        .addButton {
+            width: 85px;
+            font-size: 12px;
+        }
+
+    }
+    .box{
+        margin-top: 5px;
+    }
+    .item-details h3 {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .rating {
+        font-size: 12px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .outlet-address {
+        font-size: 13px;
+    }
+
+     .quantityBox{
+        width: 85px;
+        height: 32px;
+        bottom: -10px;
+        border-radius: 8px;
+    }
+
+    .quantityBox button{
+        width: 24px;
+        height: 24px;
+        font-size: 16px;
+    }
+
+    .quantityBox span{
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+
+}
