@@ -13,6 +13,7 @@ import HorizonScroll from "../../components/HorizonScroll/HorizonScroll";
 import { assets } from "../../assets/assets";
 import Navbar from "../../components/Navbar/Navbar";
 import CartIndicator from "../../components/CartIndicator/CartIndicator";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import RestaurantMenuShimmer from "../../components/Shimmer/RestaurantMenuShimmer";
 import { MEDIA_ASSETS_URL } from "../../utils/constants";
 import { filterMenuGroupCards } from "../../utils/search";
@@ -44,16 +45,19 @@ const RestaurantMenu = () => {
             const data4 =
                 result.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
 
-            setOpenSections(
-                data4
-                    .filter(item => item.card.card.itemCards || item.card.card.categories)
-                    .map((_, index) => index)
+            // Open every section and every nested sub-category by default,
+            // keyed the same way the render checks them (section index, and
+            // `${sectionIndex}-${categoryIndex}` for nested categories).
+            const sections = data4.filter(
+                (item) => item.card.card.itemCards || item.card.card.categories
             );
 
+            setOpenSections(sections.map((_, index) => index));
+
             setOpenCategories(
-                data4.flatMap((item, parentIndex) =>
+                sections.flatMap((item, sectionIndex) =>
                     item.card.card.categories?.map(
-                        (_, categoryIndex) => `${parentIndex}-${categoryIndex}`
+                        (_, categoryIndex) => `${sectionIndex}-${categoryIndex}`
                     ) || []
                 )
             );
@@ -136,6 +140,7 @@ const RestaurantMenu = () => {
         <div className="the-one">
             <Navbar />
             <CartIndicator />
+            <ScrollToTop />
 
 
             <div className="main">
@@ -292,18 +297,19 @@ const RestaurantMenu = () => {
                                                 })}
                                                 {
                                                     element.card.card.categories?.map((item, Cindex) => {
+                                                        const catKey = `${index}-${Cindex}`;
                                                         return (
                                                             <div key={item.categoryId}>
                                                                 <div
                                                                     className="type-header"
-                                                                    onClick={() => toggleSubSection(Cindex)}>
+                                                                    onClick={() => toggleSubSection(catKey)}>
                                                                     <h4 style={{ paddingLeft: '3%' }}>{item.title}({item.itemCards.length})</h4>
 
                                                                     <MdKeyboardArrowDown
-                                                                        className={`dropdown-icon ${(menuQuery || openCategories.includes(Cindex)) ? "open" : ""}`} />
+                                                                        className={`dropdown-icon ${(menuQuery || openCategories.includes(catKey)) ? "open" : ""}`} />
                                                                 </div>
 
-                                                                {(menuQuery || openCategories.includes(Cindex)) &&
+                                                                {(menuQuery || openCategories.includes(catKey)) &&
                                                                     item.itemCards.map((item, index) => {
                                                                         const cartItem = cartItems.find(
                                                                             (i) => i.card.info.id === item.card.info.id );

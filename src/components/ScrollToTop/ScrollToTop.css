@@ -1,0 +1,61 @@
+/* =====================================================================
+   Floating scroll-to-top button — matches the app's brand orange.
+   ===================================================================== */
+
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1100;
+
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ff5200, #ff8a00);
+  color: #fff;
+  font-size: 1.05rem;
+  box-shadow: 0 10px 26px rgba(255, 82, 0, 0.4);
+
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(255, 82, 0, 0.5);
+}
+
+/* Mobile: sit above the cart bar / thumb-reachable, slightly smaller. */
+@media (max-width: 640px) {
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 76px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top-btn {
+    transition: opacity 0.2s ease;
+  }
+
+  .scroll-top-btn:hover {
+    transform: translateY(0);
+  }
+}

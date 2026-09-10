@@ -183,6 +183,12 @@
 .dropdown-icon {
     width: 20px;
     height: 20px;
+    transition: transform 0.2s ease;
+}
+
+/* Points down when the section is collapsed, flips up when it is open. */
+.dropdown-icon.open {
+    transform: rotate(180deg);
 }
 
 .items-list {
